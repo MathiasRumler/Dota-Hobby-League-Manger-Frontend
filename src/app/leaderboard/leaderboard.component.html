@@ -1,0 +1,51 @@
+<div class="table-holder">
+  <div class="title-holder">
+    <!--    <h1 class="list-title" style="text-align: center">Assets</h1>-->
+  </div>
+
+  <table mat-table #table [dataSource]="this.playerArray" class="mat-elevation-z8" style="width: 90%; margin-right: 5%; margin-left: 5%">
+
+    <ng-container matColumnDef="account_id" style="width: 40%">
+      <th mat-header-cell *matHeaderCellDef>Account ID</th>
+      <td mat-cell *matCellDef="let element" >
+        <a href="https://www.facebook.com">
+          {{ element.account_id }}
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gesamtGames" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>Total Games</th>
+      <td mat-cell *matCellDef="let element">{{ element.gesamtGames }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gesamtWins" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>Total Wins</th>
+      <td mat-cell *matCellDef="let element">{{ element.gesamtWins }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="radiantGames" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>Radiant Games</th>
+      <td mat-cell *matCellDef="let element">{{ element.radiantGames }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="radiantWins" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>Radiant Wins</th>
+      <td mat-cell *matCellDef="let element">{{ element.radiantWins }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="direGames" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>Dire Games</th>
+      <td mat-cell *matCellDef="let element">{{ element.direGames }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="direWins" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>Dire Wins</th>
+      <td mat-cell *matCellDef="let element">{{ element.direWins }}</td>
+    </ng-container>
+
+    <tr mat-header-row  *matHeaderRowDef="playerColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: playerColumns;"
+    ></tr>
+  </table>
+</div>
