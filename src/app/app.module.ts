@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
-import {MatButton, MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import { PlayerComponent } from './player/player.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,6 +15,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {Routes, RouterModule} from "@angular/router";
+import { HeroStatsComponent } from './hero-stats/hero-stats.component';
+import { TeamsComponent } from './teams/teams.component';
+
+const appRoutes: Routes =[
+  {path: '', component: DashboardComponent},
+  {path: 'heroStats', component: HeroStatsComponent},
+  {path: 'player/:id', component: PlayerComponent},
+  {path: 'teams', component: TeamsComponent},
+  {path: 'leaderboard', component: LeaderboardComponent},
+  {path: 'heroLeaderboard/:heroID', component: AppComponent}
+]
+
 
 @NgModule({
   declarations: [
@@ -22,7 +35,9 @@ import {MatInputModule} from "@angular/material/input";
     LeaderboardComponent,
     PlayerComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeroStatsComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +49,9 @@ import {MatInputModule} from "@angular/material/input";
     MatTableModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forRoot((appRoutes),
+      {initialNavigation: 'disabled'})
   ],
   providers: [],
   bootstrap: [AppComponent]
