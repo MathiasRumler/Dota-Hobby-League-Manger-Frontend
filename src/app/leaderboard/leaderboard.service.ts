@@ -24,25 +24,18 @@ export class LeaderboardService{
   private _players$ = new BehaviorSubject<Player[] | null>(null)
   public playerArray: Player[] = [];
 
+  // @ts-ignore
+  weakCache$:Observable<Player[]>
+
   constructor(private http: HttpClient) {}
 
-  initializePlayersArray(){
-    const players: Player[] = [];
+  getLeaderBoard() : Observable<Array<Player>>{
+    if (!this.weakCache$){
+      this.weakCache$ = this.http.get('https://dotainhousebackend.herokuapp.com/api/v1/leaderboard')
+        .pipe(map(res => res as Player[]))
+    }
+      return this.weakCache$
 
-    this.http.get('https://dotainhousebackend.herokuapp.com/api/v1/leaderboard')
-      .pipe(map(res => res as Player[]))
-      .subscribe((res: Player[]) =>{
-        this.playerArray = res;
-      })
-      /*.pipe(map(res => res as Leaderboard))
-      .subscribe((res:Leaderboard) => res?.players?.map((data: Player) => {
-        players.push(data);
-        console.log(data.account_id);
-        this._players$.next(players);
-      }))*/
-  }
 
-  get players$(): Observable<Player[] | null>{
-    return this._players$.asObservable();
   }
 }

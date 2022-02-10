@@ -1,1 +1,60 @@
-<p>hero-stats works!</p>
+<div class="table-holder">
+  <div class="title-holder">
+    <!--    <h1 class="list-title" style="text-align: center">Assets</h1>-->
+  </div>
+
+  <table mat-table #table [dataSource]="this.statArray" class="mat-elevation-z8" style="width: 90%; margin-right: 5%; margin-left: 5%">
+
+    <ng-container matColumnDef="hero_id" style="width: 40%">
+      <th mat-header-cell *matHeaderCellDef>Account ID</th>
+      <td mat-cell *matCellDef="let element" ><img [src]="x2function(element.hero_id)" style="width: 100px"></td>
+<!--      <td mat-cell *matCellDef="let element" ><img [src]="x2function(1)" style="width: 100px"></td>-->
+    </ng-container>
+
+    <ng-container matColumnDef="picks" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>picks</th>
+      <td mat-cell *matCellDef="let element">{{ element.picks }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="winrate" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>winrate</th>
+      <td mat-cell *matCellDef="let element">{{ element.winrate }} %</td>
+    </ng-container>
+
+    <ng-container matColumnDef="winwhenpicked" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>winwhenpicked</th>
+      <td mat-cell *matCellDef="let element">{{ element.winwhenpicked }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="bans" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>bans</th>
+      <td mat-cell *matCellDef="let element">{{ element.bans }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="losewhenpick" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>losewhenpick</th>
+      <td mat-cell *matCellDef="let element">{{ element.losewhenpick }}</td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="pickParticipation" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>pickParticipation</th>
+      <td mat-cell *matCellDef="let element">{{ element.pickParticipation }} %</td>
+    </ng-container>
+
+    <ng-container matColumnDef="banParticipation" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>banParticipation</th>
+      <td mat-cell *matCellDef="let element">{{ element.banParticipation }} %</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pickbanParticipation" style="width: 10%">
+      <th mat-header-cell *matHeaderCellDef>pickbanParticipation</th>
+      <td mat-cell *matCellDef="let element">{{ element.pickbanParticipation }} %</td>
+    </ng-container>
+
+    <tr mat-header-row  *matHeaderRowDef="heroStatTableColumns; sticky: true" style="background-color: #151f15"></tr>
+    <tr mat-row *matRowDef="let row; columns: heroStatTableColumns;"
+    ></tr>
+  </table>
+</div>
