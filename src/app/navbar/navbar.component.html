@@ -4,9 +4,18 @@
     <span style="margin-right: 5%" routerLink="/leaderboard">Leaderboard</span>
     <span style="margin-right: 5%" routerLink="/teams">Teams</span>
     <span class="spacer"></span>
-    <form style="margin-right: 5%">
+    <form class="example-form">
       <mat-form-field>
-        <input matInput>
+        <input type="text"
+               placeholder="Player"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption  #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
     </form>
   </mat-toolbar-row>

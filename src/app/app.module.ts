@@ -9,7 +9,6 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
-import { PlayerComponent } from './player/player.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -18,14 +17,17 @@ import {MatInputModule} from "@angular/material/input";
 import {Routes, RouterModule} from "@angular/router";
 import { HeroStatsComponent } from './hero-stats/hero-stats.component';
 import { TeamsComponent } from './teams/teams.component';
+import { PlayerProfileComponent } from './player-profile/player-profile.component';
+import {MatAutocomplete, MatAutocompleteModule} from "@angular/material/autocomplete";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const appRoutes: Routes =[
   {path: '', component: DashboardComponent},
   {path: 'heroStats', component: HeroStatsComponent},
-  {path: 'player/:id', component: PlayerComponent},
   {path: 'teams', component: TeamsComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'heroLeaderboard/:heroID', component: AppComponent}
+  {path: 'heroLeaderboard/:heroID', component: AppComponent},
+  {path: 'player', component: PlayerProfileComponent}
 ]
 
 
@@ -33,11 +35,11 @@ const appRoutes: Routes =[
   declarations: [
     AppComponent,
     LeaderboardComponent,
-    PlayerComponent,
     DashboardComponent,
     NavbarComponent,
     HeroStatsComponent,
-    TeamsComponent
+    TeamsComponent,
+    PlayerProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +52,11 @@ const appRoutes: Routes =[
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule.forRoot((appRoutes),
-      {initialNavigation: 'disabled'})
+    RouterModule.forRoot((appRoutes)
+      ,
+      {initialNavigation: 'enabled'}),
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
