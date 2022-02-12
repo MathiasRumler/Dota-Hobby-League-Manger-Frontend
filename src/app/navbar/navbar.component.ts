@@ -30,4 +30,8 @@ export class NavbarComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  selectedOption(e:any){
+    console.log(e.value)
+  }
+
 }

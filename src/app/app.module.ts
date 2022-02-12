@@ -20,6 +20,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import {MatAutocomplete, MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatSortModule} from "@angular/material/sort";
 
 const appRoutes: Routes =[
   {path: '', component: DashboardComponent},
@@ -41,23 +42,24 @@ const appRoutes: Routes =[
     TeamsComponent,
     PlayerProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonToggleModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTableModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    RouterModule.forRoot((appRoutes)
-      ,
-      {initialNavigation: 'enabled'}),
-    MatAutocompleteModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonToggleModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTableModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        RouterModule.forRoot((appRoutes)
+            ,
+            {initialNavigation: 'enabled'}),
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        MatSortModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

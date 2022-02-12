@@ -1,7 +1,8 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {BehaviorSubject, map, Observable, throwError} from "rxjs";
+import {BehaviorSubject, map, Observable, share, shareReplay, throwError} from "rxjs";
 import { catchError, retry } from "rxjs";
+import {decimalDigest} from "@angular/compiler/src/i18n/digest";
 
 export interface Leaderboard{
   players?: Player[];
@@ -17,6 +18,18 @@ export interface Player{
   direWins : number;
 }
 
+/*sharedReplay
+We want to make that Observable hot,
+so each new subscriber would get the last
+emitted value. The operator shareReplay is
+perfect for this purpose. Without going too
+much into details, this operator will share a
+single subscription to the underlying source.
+It also accepts an optional parameter that
+determines the size of the inner buffer.*/
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,10 +42,10 @@ export class LeaderboardService{
 
   constructor(private http: HttpClient) {}
 
-  getLeaderBoard() : Observable<Array<Player>>{
+  getLeaderBoard() : Observable<Player[]>{
     if (!this.weakCache$){
       this.weakCache$ = this.http.get('https://dotainhousebackend.herokuapp.com/api/v1/leaderboard')
-        .pipe(map(res => res as Player[]))
+        .pipe(map(res => res as Player[]),shareReplay(1))
     }
       return this.weakCache$
 
