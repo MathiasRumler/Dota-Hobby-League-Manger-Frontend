@@ -21,13 +21,14 @@ import { PlayerProfileComponent } from './player-profile/player-profile.componen
 import {MatAutocomplete, MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSortModule} from "@angular/material/sort";
+import { HeroLeaderboardComponent } from './hero-leaderboard/hero-leaderboard.component';
 
 const appRoutes: Routes =[
   {path: '', component: DashboardComponent},
   {path: 'heroStats', component: HeroStatsComponent},
   {path: 'teams', component: TeamsComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'heroLeaderboard/:heroID', component: AppComponent},
+  {path: 'hero/:heroID', component: HeroLeaderboardComponent},
   {path: 'player', component: PlayerProfileComponent}
 ]
 
@@ -40,7 +41,8 @@ const appRoutes: Routes =[
     NavbarComponent,
     HeroStatsComponent,
     TeamsComponent,
-    PlayerProfileComponent
+    PlayerProfileComponent,
+    HeroLeaderboardComponent
   ],
     imports: [
         BrowserModule,

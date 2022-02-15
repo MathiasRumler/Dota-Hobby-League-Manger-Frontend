@@ -1,3 +1,6 @@
+
+
+
 <div class="table-holder">
   <div class="title-holder">
 <!--        <h1 class="list-title" style="text-align: center">Assets</h1>-->
@@ -7,7 +10,7 @@
 
     <ng-container matColumnDef="hero_id" style="width: 40%">
       <th mat-header-cell *matHeaderCellDef>Account ID</th>
-      <td mat-cell *matCellDef="let element" ><img [src]="findPictureURL(element.hero_id)" style="width: 100px"></td>
+      <td mat-cell *matCellDef="let element" routerLinkActive="true" [routerLink]="createLink(element.hero_id)"><img [src]="findPictureURL(element.hero_id)" style="width: 100px"></td>
     </ng-container>
 
     <ng-container matColumnDef="picks" style="width: 10%">

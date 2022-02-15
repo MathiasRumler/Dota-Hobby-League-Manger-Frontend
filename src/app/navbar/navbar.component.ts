@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   myControl = new FormControl();
   options: string[] = ['Mathias', 'Dany', 'Dusty','Manu', 'Ascher', 'secco'];
-  filteredOptions: Observable<string[]>;
+  filteredOptions: Observable<string[]> | undefined;
 
 
   constructor() { }
