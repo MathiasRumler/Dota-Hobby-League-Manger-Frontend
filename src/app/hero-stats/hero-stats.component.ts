@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort, Sort} from '@angular/material/sort';
 import {HeroStatsService} from "./hero-stats-service";
+import {HeroDataService} from "../stand-alone-services/heroData-service";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HeroStatsComponent implements OnInit , AfterViewInit{
   heroStatTableColumns: string[] = ['hero_id','picks','winrate','winwhenpicked','bans','losewhenpick','pickParticipation','banParticipation','pickbanParticipation']
 
 
-  constructor(private http:HttpClient, private heroStatServe:HeroStatsService) { }
+  constructor(private http:HttpClient, private heroStatServe:HeroStatsService, private heroDataService: HeroDataService) { }
 
 
   // @ts-ignore
@@ -37,7 +38,7 @@ export class HeroStatsComponent implements OnInit , AfterViewInit{
         this.statArray.sort = this.sortes
         // console.log(this.statArray)
       })
-
+    this.heroDataService.getHeroes();
   }
 
   ngAfterViewInit(): void {
@@ -50,6 +51,10 @@ export class HeroStatsComponent implements OnInit , AfterViewInit{
 
   findPictureURL(heroId:number){
     return this.heroStatServe.findPictureURL(heroId)
+  }
+
+  logHeroes(){
+    this.heroDataService.logHeroes();
   }
 
 

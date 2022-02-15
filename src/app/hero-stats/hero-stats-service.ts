@@ -19,13 +19,12 @@ determines the size of the inner buffer.*/
 })
 
 export class HeroStatsService{
-  weakCache$: Observable<HeroStat[]>
+  weakCache$: Observable<HeroStat[]> | undefined
 
   constructor(private http:HttpClient, private hds: HeroDataService) {
   }
 
   getHeroStats() : Observable<HeroStat[]>{
-    this.hds.getJson()
     if (!this.weakCache$){
       this.weakCache$ = this.http.get('https://dotainhousebackend.herokuapp.com/api/v1/pickAndBanStats')
         .pipe(map(res => res as HeroStat[]), shareReplay(1))
