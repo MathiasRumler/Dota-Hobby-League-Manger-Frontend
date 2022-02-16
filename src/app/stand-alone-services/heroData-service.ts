@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject} from "rxjs";
-// import heroDD from 'src/app/stand-alone-services/heroData.json';
+import heroDD from 'src/assets/heroData.json';
+import {conditionallyCreateMapObjectLiteral} from "@angular/compiler/src/render3/view/util";
 
 export interface HeroRootObject{
   heroes?: Hero[];
@@ -54,18 +55,31 @@ export class HeroDataService{
   constructor(private http: HttpClient) {
   }
 
-  getHeroes(){
-    // this.http.get('../assets/heroData.json')
-    //   .subscribe((res: HeroRootObject) => res.heroes?.map(data => {
-    //     console.log(data);
-    //     console.log("PENIS");
-    //   }))
-    //
-    // this.http.get('../assets/heroData.json')
-    //   .subscribe((res: HeroRootObject) => console.log(res.heroes[1]))
+
+  //You have to check for undifined
+  getHeroes(heroID : number){
+      // @ts-ignore
+    console.log(heroDD[heroID])
+    // @ts-ignore
+    return heroDD[heroID] as Hero
   }
 
-  logHeroes(){
-    console.log(this.heroes);
-  }
+
 }
+
+
+
+
+// this.http.get('../assets/heroData.json')
+//   .subscribe((res: HeroRootObject) => res.heroes?.map(data => {
+//     console.log(data);
+//     console.log("PENIS");
+//   }))
+//
+// this.http.get('../assets/heroData.json')
+//   .subscribe((res: HeroRootObject) => console.log((res.heroes[1]))
+
+// this.http.get('../assets/heroData.json')
+//   .subscribe(res=> console.log(res))
+
+// const heroidii:any = "16"
