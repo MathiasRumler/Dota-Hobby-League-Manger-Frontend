@@ -47,7 +47,7 @@ export class HeroStatsComponent implements OnInit , AfterViewInit{
   }
 
   createLink(heroId: number){
-    return '../hero/' + heroId
+    return '../hero/' + heroId + '/leaderboard'
   }
 
   findPictureURL(heroId:number){

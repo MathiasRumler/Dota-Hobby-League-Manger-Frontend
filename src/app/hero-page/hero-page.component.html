@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col">
+
+  </div>
+  <div class="col-6">
+    <!--    <button class="btn btn-danger"></button>-->
+    <img [src]="bldurl" style="width: 100px">
+  </div>
+  <div class="col">
+    <h1>{{heroData.localized_name}}</h1>
+  </div>
+</div>
+
+
+
+<div class="bbody">
+  <nav class="navMenu">
+    <a routerLinkActive="true" [routerLink]="'./leaderboard'">Leaderboard</a>
+    <a routerLinkActive="true" [routerLink]="'./recent-games'">Recent Games</a>
+    <a routerLinkActive="true" [routerLink]="'./matchups'">Matchups</a>
+    <a routerLinkActive="true" [routerLink]="'./about'">About</a>
+    <div class="dot"></div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>

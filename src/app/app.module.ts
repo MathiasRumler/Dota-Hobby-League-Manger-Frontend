@@ -21,14 +21,23 @@ import { PlayerProfileComponent } from './player-profile/player-profile.componen
 import {MatAutocomplete, MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSortModule} from "@angular/material/sort";
-import { HeroLeaderboardComponent } from './hero-leaderboard/hero-leaderboard.component';
+import { HeroLeaderboardComponent } from './hero-page/hero-leaderboard/hero-leaderboard.component';
+import { HeroPageComponent } from './hero-page/hero-page.component';
+import { HeroAboutComponent } from './hero-page/hero-about/hero-about.component';
+import { HeroMatchupsComponent } from './hero-page/hero-matchups/hero-matchups.component';
+import { HeroRecentGamesComponent } from './hero-page/hero-recent-games/hero-recent-games.component';
 
 const appRoutes: Routes =[
   {path: '', component: DashboardComponent},
   {path: 'heroStats', component: HeroStatsComponent},
   {path: 'teams', component: TeamsComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'hero/:heroID', component: HeroLeaderboardComponent},
+  {path: 'hero/:heroID', component: HeroPageComponent, children: [
+      {path: 'leaderboard', component: HeroLeaderboardComponent},
+      {path:'recent-games', component: HeroRecentGamesComponent},
+      {path:'matchups', component: HeroMatchupsComponent},
+      {path:'about', component: HeroAboutComponent}
+    ]},
   {path: 'player', component: PlayerProfileComponent}
 ]
 
@@ -42,7 +51,11 @@ const appRoutes: Routes =[
     HeroStatsComponent,
     TeamsComponent,
     PlayerProfileComponent,
-    HeroLeaderboardComponent
+    HeroLeaderboardComponent,
+    HeroPageComponent,
+    HeroAboutComponent,
+    HeroMatchupsComponent,
+    HeroRecentGamesComponent
   ],
     imports: [
         BrowserModule,
