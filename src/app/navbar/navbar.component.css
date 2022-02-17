@@ -1,3 +1,32 @@
 .spacer{
   flex: 1 1 auto;
 }
+.sideHeader{
+  display: flex;
+  /*justify-content: center;*/
+  padding: 2rem 1rem 1rem 6rem;
+  background-color: #1c271c;
+
+}
+
+.sideHeader h1{
+  font-family: 'Libre Baskerville', sans-serif;
+  font-weight: bold;
+  color: #73af79;
+
+
+  /*color: darkred;*/
+}
+.sideHeader span{
+  color: #63d0b7;
+
+
+}
+
+.mat-toolbar{
+  padding: 1rem;
+}
+
+ubody{
+  color: #73af79;
+}

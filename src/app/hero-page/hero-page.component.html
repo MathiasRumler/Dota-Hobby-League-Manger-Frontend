@@ -1,24 +1,53 @@
-<div class="row">
-  <div class="col">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body style="background-color: rgba(115, 175, 121, 1.00);">
+
+
+<div id="container">
+
+  <div class="product-details">
+
+    <h1>{{heroData.localized_name}}</h1>
+
+
+    <p class="information">Melee"</p>
+    <p class="information">Disabler - Initiator - STR</p>
+
 
   </div>
-  <div class="col-6">
-    <!--    <button class="btn btn-danger"></button>-->
-    <img [src]="bldurl" style="width: 100px">
+
+  <div class="product-image">
+
+    <img [src]="bldurl" alt="">
+<!--    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/night_stalker.png" alt="">-->
+
+
+    <div class="info">
+      <h2> Description</h2>
+      <ul>
+        <li><strong>Height : </strong>5 Ft </li>
+        <li><strong>Shade : </strong>Olive green</li>
+        <li><strong>Decoration: </strong>balls and bells</li>
+        <li><strong>Material: </strong>Eco-Friendly</li>
+
+      </ul>
+    </div>
   </div>
-  <div class="col">
-    <h1>{{heroData.localized_name}}</h1>
-  </div>
+
 </div>
+
+</body>
+
 
 
 
 <div class="bbody">
   <nav class="navMenu">
-    <a routerLinkActive="true" [routerLink]="'./leaderboard'">Leaderboard</a>
-    <a routerLinkActive="true" [routerLink]="'./recent-games'">Recent Games</a>
-    <a routerLinkActive="true" [routerLink]="'./matchups'">Matchups</a>
-    <a routerLinkActive="true" [routerLink]="'./about'">About</a>
+
+      <a routerLinkActive="true" [routerLink]="'./leaderboard'">Leaderboard</a>
+      <a routerLinkActive="true" [routerLink]="'./recent-games'">Recent Games</a>
+      <a routerLinkActive="true" [routerLink]="'./matchups'">Matchups</a>
+      <a routerLinkActive="true" [routerLink]="'./about'">About</a>
+
     <div class="dot"></div>
   </nav>
 </div>
